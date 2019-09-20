@@ -25,3 +25,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Validator\Constraints\MinWordsValidator:
+        arguments:
+            $minWordsCount: '%env(MIN_WORDS_IN_CONTENT)%'
+
+    App\Service\KeywordService:
+        arguments:
+            $keywordsString: '%env(KEYWORDS_STRING)%'
